@@ -1,8 +1,8 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services'
-import Portafolio from './components/Portafolio'
-import Portfolio from './components/Portafolio';
+import Portfolio from './components/Portfolio';
+import Footer from './components/Footer'
 
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
       <Hero />
       <Services />
       <Portfolio />
+      <Footer />
     </div>
   )
 }
