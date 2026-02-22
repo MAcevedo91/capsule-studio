@@ -45,7 +45,7 @@ const Hero = () => {
         </div>
 
         {/* Columna derecha — Animación cyberpunk */}
-        <div className="hidden lg:flex items-center justify-center relative">
+        <div className="hidden lg:flex items-center justify-center relative animate-blurred-fade-in">
           <CyberpunkAnimation />
         </div>
 

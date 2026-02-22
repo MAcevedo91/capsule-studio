@@ -23,6 +23,8 @@ const Navbar = () => {
           <a href="#servicios" className="hover:text-neo-light transition-colors duration-300">/ SERVICIOS</a>
           <a href="#portafolio" className="hover:text-neo-light transition-colors duration-300">/ PORTAFOLIO</a>
           <a href="#contacto" className="hover:text-neo-light transition-colors duration-300">/ CONTACTO</a>
+          <a href="#nosotros" className="hover:text-neo-light transition-colors duration-300">/ NOSOTROS</a>
+
         </div>
 
         {/* Botón CTA (Call to Action) */}
