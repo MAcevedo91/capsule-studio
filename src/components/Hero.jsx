@@ -1,6 +1,6 @@
 // src/components/Hero.jsx
 import React from 'react';
-import heroTech from '../assets/hero-tech.png';
+import CyberpunkAnimation from './CyberpunkAnimation';
 
 const Hero = () => {
   return (
@@ -22,9 +22,9 @@ const Hero = () => {
 
           {/* Titular Principal */}
           <h1 className="text-5xl md:text-6xl xl:text-7xl font-extrabold text-neo-light mb-6 leading-tight">
-            Sistemas Digitales para{' '}
+            Sincroniza tu negocio{' '}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-akira-red to-red-600 drop-shadow-[0_0_15px_rgba(227,36,43,0.4)]">
-              Negocios Locales
+              <br/> Con el Mañana
             </span>
           </h1>
 
@@ -44,22 +44,9 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Columna derecha — Imagen tecnológica */}
+        {/* Columna derecha — Animación cyberpunk */}
         <div className="hidden lg:flex items-center justify-center relative">
-          {/* Glow detrás de la imagen */}
-          <div className="absolute inset-0 rounded-2xl bg-capsule-blue/5 blur-2xl"></div>
-
-          <img
-            src={heroTech}
-            alt="Formas tecnológicas digitales"
-            className="relative w-full max-w-lg rounded-2xl border border-capsule-blue/20 shadow-[0_0_60px_rgba(0,212,255,0.15)] object-cover animate-float"
-          />
-
-          {/* Badge decorativo */}
-          <div className="absolute -bottom-4 -left-4 bg-neo-dark border border-capsule-blue/30 rounded-lg px-4 py-3 shadow-[0_0_20px_rgba(0,212,255,0.2)]">
-            <p className="font-mono text-capsule-blue text-xs tracking-widest">// WEB_READY</p>
-            <p className="text-neo-light text-sm font-bold mt-1">Listos para lanzar</p>
-          </div>
+          <CyberpunkAnimation />
         </div>
 
       </div>
