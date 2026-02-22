@@ -59,7 +59,7 @@ const Services = () => {
             >
               <h3 className="text-2xl font-bold text-neo-light mb-2">{pkg.name}</h3>
               <p className="text-3xl font-mono text-capsule-blue mb-4">{pkg.price}</p>
-              <p className="text-gray-400 mb-8 flex-grow">{pkg.description}</p>
+              <p className="text-gray-400 mb-8 grow">{pkg.description}</p>
               
               <ul className="space-y-3 mb-8">
                 {pkg.features.map((feature, idx) => (
