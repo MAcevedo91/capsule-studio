@@ -51,7 +51,7 @@ const Services = () => {
           <p className="text-gray-400 font-mono text-sm">// PRECIOS CLAROS, SIN SORPRESAS</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 animate-blurred-fade-in">
           {packages.map((pkg, index) => (
             <div 
               key={index} 

@@ -1,7 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import 'tailwind-animations';
+
+@theme {
+  --color-akira-red: #e3242b;
+  --color-capsule-blue: #00d4ff;
+  --color-neo-dark: #0d0e15;
+  --color-neo-light: #f8f9fa;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "Fira Code", monospace;
+}
 
 body {
-  @apply bg-neo-dark text-neo-light; 
+  @apply bg-neo-dark text-neo-light;
 }

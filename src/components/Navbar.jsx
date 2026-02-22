@@ -8,6 +8,7 @@ const Navbar = () => {
         
         {/* Logo Textual */}
         <div className="text-2xl font-bold tracking-tighter cursor-pointer">
+          <img src="" alt="" />
           <span className="text-neo-light">CAPSULE</span>
           <span className="text-akira-red">STUDIO</span>
         </div>
