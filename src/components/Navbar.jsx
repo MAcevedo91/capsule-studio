@@ -1,5 +1,6 @@
 // src/components/Navbar.jsx
 import React from 'react';
+import navbarLogo from '../assets/img/complete-logo.png'
 
 const Navbar = () => {
   return (
@@ -7,10 +8,14 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         
         {/* Logo Textual */}
-        <div className="text-2xl font-bold tracking-tighter cursor-pointer">
-          <img src="" alt="" />
-          <span className="text-neo-light">CAPSULE</span>
-          <span className="text-akira-red">STUDIO</span>
+        <div className="text-2xl font-bold tracking-tighter cursor-pointer flex flex-row">
+          <a href="/">
+            <img 
+              src={navbarLogo} 
+              alt="CapsuleLogo" 
+              className="transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(0,212,255,0.8)] hover:brightness-125"
+            />
+          </a>
         </div>
 
         {/* Enlaces de Navegación (Ocultos en móvil por ahora) */}

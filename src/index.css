@@ -8,8 +8,21 @@
   --color-neo-light: #f8f9fa;
   --font-sans: "Inter", sans-serif;
   --font-mono: "Fira Code", monospace;
+  --animate-neon-pulse: neonPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+@keyframes neonPulse {
+  0%, 100% { 
+    opacity: 1; 
+  }
+  50% { 
+    opacity: 0.7; 
+    filter: brightness(1.2); 
+  }
+}
+
+/* 5. Estilos globales base usando las variables recién creadas */
 body {
-  @apply bg-neo-dark text-neo-light;
+  background-color: var(--color-neo-dark);
+  color: var(--color-neo-light);
 }

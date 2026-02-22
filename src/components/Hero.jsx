@@ -10,7 +10,7 @@ const Hero = () => {
 
       <div className="z-10 max-w-4xl mt-20">
         {/* Eslogan Técnico */}
-        <p className="font-mono text-capsule-blue mb-6 tracking-[0.3em] drop-shadow-[0_0_8px_rgba(0,212,255,0.8)] text-sm md:text-base">
+        <p className="font-mono text-capsule-blue mb-6 tracking-[0.3em] drop-shadow-[0_0_8px_rgba(0,212,255,0.8)] text-sm md:text-base animate-neon-pulse">
           // DIGITAL CONSTRUCTS
         </p>
 
