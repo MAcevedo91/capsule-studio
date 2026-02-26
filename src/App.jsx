@@ -2,7 +2,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services'
 import Nosotros from './components/Nosotros';
-import Portfolio from './components/Portfolio';
+// import Portfolio from './components/Portfolio';
+import Process from './components/Process'
 import Footer from './components/Footer'
 
 
@@ -13,7 +14,8 @@ function App() {
       <Hero />
       <Services />
       <Nosotros />
-      <Portfolio />
+      {/* <Portfolio /> */}
+      <Process />
       <Footer />
     </div>
   )

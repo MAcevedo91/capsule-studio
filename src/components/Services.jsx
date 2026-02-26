@@ -48,7 +48,7 @@ const Services = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-neo-light mb-4">
             Soluciones a tu <span className="text-capsule-blue">Medida</span>
           </h2>
-          <p className="text-gray-400 font-mono text-sm">// PRECIOS CLAROS, SIN SORPRESAS</p>
+          <p className="text-gray-400 font-mono text-sm animate-neon-pulse">// PRECIOS CLAROS, SIN SORPRESAS</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 animate-blurred-fade-in">

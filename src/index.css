@@ -10,6 +10,7 @@
   --font-mono: "Fira Code", monospace;
   --animate-neon-pulse: neonPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-float: float 6s ease-in-out infinite;
+  --font-display: "Orbitron", sans-serif;
 }
 
 @keyframes neonPulse {
@@ -31,4 +32,9 @@
 body {
   background-color: var(--color-neo-dark);
   color: var(--color-neo-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
 }
