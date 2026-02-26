@@ -1,78 +1,88 @@
-// src/components/Services.jsx
 import React from 'react';
+import { Reveal } from './ScrollReveal';
 
 const Services = () => {
   const packages = [
     {
-      name: "Landing Page",
-      price: "Desde $150.000",
-      description: "Ideal para negocios que ofrecen un servicio específico y buscan captar clientes rápido.",
+      name: "Terminal de Ventas",
+      tag: "// ALTA CONVERSIÓN",
+      description: "Despliegue rápido enfocado en maximizar conversiones y captar prospectos con la menor fricción posible.",
       features: [
-        "Página única (One-Pager)",
-        "Diseño adaptado a celulares",
-        "Botón directo a WhatsApp",
-        "Optimización de velocidad"
+        "Landing page de alto rendimiento",
+        "Diseño UX optimizado para móvil",
+        "Pipeline directo a WhatsApp",
+        "Velocidad de carga milimétrica"
       ],
-      highlight: false
+      highlight: false,
+      cta: "Solicitar Diagnóstico"
     },
     {
-      name: "Sitio Corporativo",
-      price: "Desde $250.000",
-      description: "Presencia digital completa y estructurada para establecer autoridad en tu rubro.",
+      name: "Ecosistema de Negocio",
+      tag: "// PRESENCIA INTEGRAL",
+      description: "Arquitectura digital completa para estructurar la autoridad de tu marca y consolidar tu catálogo de servicios.",
       features: [
-        "Hasta 5 secciones",
-        "Formulario de contacto",
-        "Galería o Catálogo",
-        "Integración con Google Maps"
+        "Desarrollo multi-sección",
+        "Sistemas de contacto inteligentes",
+        "Integración de Menú o Catálogo",
+        "Optimización de presencia local (SEO)"
       ],
-      highlight: true // Usaremos esto para destacar el paquete intermedio
+      highlight: true, 
+      cta: "Evaluar Implementación"
     },
     {
-      name: "Mantenimiento",
-      price: "$20.000 / mes",
-      description: "Tú operas tu negocio, yo me encargo de que tu web sea rápida y nunca se caiga.",
+      name: "Optimización de Flujo",
+      tag: "// SOFTWARE A MEDIDA",
+      description: "Soluciones de ingeniería diseñadas para automatizar cuellos de botella operativos y sustituir procesos manuales.",
       features: [
-        "Hosting de alta velocidad",
-        "Dominio .cl incluido",
-        "Certificado de Seguridad SSL",
-        "Actualizaciones menores"
+        "Análisis de cuellos de botella",
+        "Desarrollo de herramientas internas",
+        "Manejo de bases de datos",
+        "Mantenimiento de infraestructura"
       ],
-      highlight: false
+      highlight: false,
+      cta: "Agendar Consultoría"
     }
   ];
 
   return (
     <section id="servicios" className="py-24 px-6 bg-neo-dark border-t border-neo-light/5">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <Reveal dir="down" className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-neo-light mb-4">
-            Soluciones a tu <span className="text-capsule-blue">Medida</span>
+            Modelos de <span className="text-capsule-blue">Implementación</span>
           </h2>
-          <p className="text-gray-400 font-mono text-sm animate-neon-pulse">// PRECIOS CLAROS, SIN SORPRESAS</p>
-        </div>
+          <p className="text-gray-400 font-mono text-sm animate-neon-pulse">// INGENIERÍA APLICADA AL CRECIMIENTO</p>
+        </Reveal>
 
-        <div className="grid md:grid-cols-3 gap-8 animate-blurred-fade-in">
+        <div className="grid lg:grid-cols-3 gap-8">
           {packages.map((pkg, index) => (
-            <div 
-              key={index} 
-              className={`p-8 bg-neo-dark border ${pkg.highlight ? 'border-akira-red shadow-[0_0_15px_rgba(227,36,43,0.2)]' : 'border-neo-light/10'} rounded-sm flex flex-col`}
+            <Reveal
+              key={index}
+              dir="up"
+              delay={index * 150}
+              className={`p-8 bg-neo-dark border ${pkg.highlight ? 'border-akira-red shadow-[0_0_15px_rgba(227,36,43,0.2)]' : 'border-neo-light/10'} rounded-lg flex flex-col group hover:-translate-y-2 transition-transform duration-500`}
             >
-              <h3 className="text-2xl font-bold text-neo-light mb-2">{pkg.name}</h3>
-              <p className="text-3xl font-mono text-capsule-blue mb-4">{pkg.price}</p>
-              <p className="text-gray-400 mb-8 grow">{pkg.description}</p>
+              <div className="mb-6">
+                <p className={`font-mono text-xs tracking-widest mb-3 ${pkg.highlight ? 'text-akira-red' : 'text-capsule-blue'}`}>
+                  {pkg.tag}
+                </p>
+                <h3 className="text-2xl font-bold text-neo-light mb-3">{pkg.name}</h3>
+                <p className="text-gray-400 leading-relaxed text-sm">{pkg.description}</p>
+              </div>
               
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-4 mb-8 grow">
                 {pkg.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-gray-300 text-sm">
-                    <span className="text-akira-red mr-2">❯</span> {feature}
+                  <li key={idx} className="flex items-start text-gray-300 text-sm">
+                    <span className={`mr-3 shrink-0 ${pkg.highlight ? 'text-akira-red' : 'text-capsule-blue'}`}>❯</span> 
+                    <span className="leading-snug">{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <button className={`w-full py-3 font-bold tracking-wider uppercase transition-colors ${pkg.highlight ? 'bg-akira-red text-neo-light hover:bg-red-600' : 'bg-transparent border border-capsule-blue text-capsule-blue hover:bg-capsule-blue/10'}`}>
-                Seleccionar
-              </button>
-            </div>
+              <a href="#contacto" className={`block text-center w-full py-3 font-bold tracking-wider uppercase transition-colors rounded-sm ${pkg.highlight ? 'bg-akira-red text-neo-light hover:bg-red-600' : 'bg-transparent border border-capsule-blue text-capsule-blue hover:bg-capsule-blue hover:text-neo-dark'}`}>
+                {pkg.cta}
+              </a>
+            </Reveal>
           ))}
         </div>
       </div>

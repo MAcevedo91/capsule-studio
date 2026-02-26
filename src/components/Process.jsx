@@ -1,5 +1,5 @@
-// src/components/Process.jsx
 import React from 'react';
+import { Reveal } from './ScrollReveal';
 
 const Process = () => {
     const steps = [
@@ -21,21 +21,26 @@ const Process = () => {
     ];
 
     return (
-        <section className="py-24 px-6 bg-neo-dark relative border-t border-neo-light/5">
+        <section id="proceso" className="py-24 px-6 bg-neo-dark relative border-t border-neo-light/5">
         <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <Reveal dir="down" className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-neo-light mb-4">
                 Secuencia de <span className="text-capsule-blue">Iniciación</span>
             </h2>
             <p className="text-gray-400 font-mono text-sm">// CÓMO TRANSFORMAMOS TU NEGOCIO</p>
-            </div>
+            </Reveal>
 
             <div className="grid md:grid-cols-3 gap-8 relative">
             {/* Línea conectora de fondo (solo visible en escritorio) */}
             <div className="hidden md:block absolute top-12 left-10 right-10 h-px bg-neo-light/10 z-0"></div>
 
             {steps.map((step, index) => (
-                <div key={index} className="relative z-10 bg-neo-dark p-6 border border-neo-light/10 rounded-sm hover:border-capsule-blue transition-colors duration-300">
+                <Reveal 
+                  key={index} 
+                  dir="up" 
+                  delay={index * 200} 
+                  className="relative z-10 bg-neo-dark p-6 border border-neo-light/10 rounded-sm hover:border-capsule-blue transition-colors duration-300"
+                >
                 <div className="text-5xl font-extrabold text-transparent bg-clip-text bg-linear-to-b from-neo-light/20 to-transparent mb-4">
                     {step.number}
                 </div>
@@ -46,7 +51,7 @@ const Process = () => {
                 <p className="text-gray-400 text-sm leading-relaxed">
                     {step.description}
                 </p>
-                </div>
+                </Reveal>
             ))}
             </div>
         </div>

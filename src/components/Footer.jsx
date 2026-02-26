@@ -1,11 +1,13 @@
 // src/components/Footer.jsx
 import React from 'react';
 import footerLogo from '../assets/img/complete-logo.png';
+import { Reveal } from './ScrollReveal';
 
 const navLinks = [
+  { href: '#inicio', label: 'Inicio' },
   { href: '#servicios', label: 'Servicios' },
-  { href: '#portafolio', label: 'Portafolio' },
   { href: '#nosotros', label: 'Nosotros' },
+  { href: '#proceso', label: 'Proceso' },
   { href: '#contacto', label: 'Contacto' },
 ];
 
@@ -14,29 +16,61 @@ const Footer = () => {
     <footer className="bg-neo-dark border-t border-neo-light/10">
 
       {/* CTA strip */}
-      <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <Reveal dir="up" className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
         <p className="text-neo-light/60 text-sm font-mono tracking-widest uppercase">
-          ¿Listo para tu próximo proyecto?
+          Síguenos en nuestras redes
         </p>
-        <a
-          href="https://wa.me/56900000000"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-2.5 border border-capsule-blue text-capsule-blue text-sm font-mono tracking-wider rounded-sm hover:bg-capsule-blue hover:text-neo-dark transition-all duration-300"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.118 1.528 5.845L.057 23.5l5.803-1.522A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.869 9.869 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.867 9.867 0 012.118 12C2.118 6.534 6.534 2.118 12 2.118S21.882 6.534 21.882 12 17.466 21.882 12 21.882z"/>
-          </svg>
-          Hablemos
-        </a>
-      </div>
+        <div className="flex items-center gap-4">
+          {/* Instagram */}
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 flex items-center justify-center rounded-sm border border-capsule-blue text-capsule-blue hover:bg-capsule-blue hover:text-neo-dark transition-all duration-300"
+            aria-label="Instagram"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          
+          {/* LinkedIn */}
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 flex items-center justify-center rounded-sm border border-capsule-blue text-capsule-blue hover:bg-capsule-blue hover:text-neo-dark transition-all duration-300"
+            aria-label="LinkedIn"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+
+          {/* GitHub */}
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 flex items-center justify-center rounded-sm border border-capsule-blue text-capsule-blue hover:bg-capsule-blue hover:text-neo-dark transition-all duration-300"
+            aria-label="GitHub"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+          </a>
+        </div>
+      </Reveal>
 
       {/* Línea separadora */}
       <div className="border-t border-neo-light/5" />
 
       {/* Barra inferior */}
-      <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <Reveal dir="up" delay={200} className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
 
         {/* Logo */}
         <a href="/" className="shrink-0">
@@ -65,7 +99,7 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Capsule Studio
         </p>
 
-      </div>
+      </Reveal>
     </footer>
   );
 };

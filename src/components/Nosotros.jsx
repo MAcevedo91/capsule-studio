@@ -1,42 +1,8 @@
 // src/components/Nosotros.jsx
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
-/* ── Hook: fires once when element enters viewport ── */
-const useVisible = (threshold = 0.15) => {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setVisible(true); },
-      { threshold }
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, [threshold]);
-  return [ref, visible];
-};
-
-/* ── Animated wrapper: Tailwind transitions + staggered delay ── */
-const Reveal = ({ children, delay = 0, dir = 'up', className = '' }) => {
-  const [ref, visible] = useVisible();
-  const base = 'transition-all duration-500 ease-out';
-  const dirs = {
-    up:    { from: 'opacity-0 translate-y-6',  to: 'opacity-100 translate-y-0' },
-    left:  { from: 'opacity-0 -translate-x-8', to: 'opacity-100 translate-x-0' },
-    right: { from: 'opacity-0 translate-x-8',  to: 'opacity-100 translate-x-0' },
-    down:  { from: 'opacity-0 -translate-y-6', to: 'opacity-100 translate-y-0' },
-  };
-  const { from, to } = dirs[dir] || dirs.up;
-  return (
-    <div
-      ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`${base} ${visible ? to : from} ${className}`}
-    >
-      {children}
-    </div>
-  );
-};
+import { Reveal } from './ScrollReveal';
+import { useVisible } from '../hooks/useVisible';
 
 /* ── Data ── */
 const misionPoints = [
