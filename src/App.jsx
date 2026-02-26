@@ -4,6 +4,7 @@ import Services from './components/Services'
 import Nosotros from './components/Nosotros';
 // import Portfolio from './components/Portfolio';
 import Process from './components/Process'
+import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 
@@ -16,6 +17,7 @@ function App() {
       <Nosotros />
       {/* <Portfolio /> */}
       <Process />
+      <Contact />
       <Footer />
     </div>
   )
