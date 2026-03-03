@@ -6,7 +6,7 @@ const Services = () => {
     {
       name: "Terminal de Ventas",
       tag: "// ALTA CONVERSIÓN",
-      description: "Despliegue rápido enfocado en maximizar conversiones y captar prospectos con la menor fricción posible.",
+      description: "Una landing page lista para vender. Diseñada para que el cliente llegue y llame, escriba o compre.",
       features: [
         "Landing page de alto rendimiento",
         "Diseño UX optimizado para móvil",
@@ -19,7 +19,7 @@ const Services = () => {
     {
       name: "Ecosistema de Negocio",
       tag: "// PRESENCIA INTEGRAL",
-      description: "Arquitectura digital completa para estructurar la autoridad de tu marca y consolidar tu catálogo de servicios.",
+      description: "Tu sitio completo: quiénes son, qué ofrecen, cómo contactarlos. Con SEO para aparecer en Google.",
       features: [
         "Desarrollo multi-sección",
         "Sistemas de contacto inteligentes",
@@ -32,7 +32,7 @@ const Services = () => {
     {
       name: "Optimización de Flujo",
       tag: "// SOFTWARE A MEDIDA",
-      description: "Soluciones de ingeniería diseñadas para automatizar cuellos de botella operativos y sustituir procesos manuales.",
+      description: "Herramientas a medida para automatizar tareas repetitivas y eliminar trabajo manual.",
       features: [
         "Análisis de cuellos de botella",
         "Desarrollo de herramientas internas",

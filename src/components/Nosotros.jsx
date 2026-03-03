@@ -109,8 +109,7 @@ const Nosotros = () => {
             </span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light">
-            Somos un estudio de desarrollo web especializado en transformar negocios locales
-            en marcas digitales sólidas, ágiles y preparadas para competir.
+            Hacemos sitios web para negocios que necesitan vender más y perder menos tiempo.
           </p>
         </Reveal>
 
@@ -132,9 +131,8 @@ const Nosotros = () => {
               <div className="border-l-2 border-akira-red pl-6">
                 <h3 className="text-2xl font-bold text-neo-light mb-3">Nuestro enfoque</h3>
                 <p className="text-gray-400 leading-relaxed">
-                  Cada proyecto arranca con un diagnóstico real. Escuchamos, analizamos
-                  y ejecutamos con precisión quirúrgica. No vendemos plantillas —
-                  construimos soluciones digitales a medida que convierten visitantes en clientes.
+                  Antes de escribir una sola línea de código, entendemos tu negocio.
+                  Nada de plantillas genéricas: cada sitio está hecho para tu cliente específico.
                 </p>
               </div>
             </Reveal>

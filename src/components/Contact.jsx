@@ -12,7 +12,7 @@ const Contact = () => {
                     Inicia la <span className="text-transparent bg-clip-text bg-linear-to-r from-akira-red to-red-600">Actualización</span>
                 </h2>
                 <p className="text-gray-400 mb-8 text-lg">
-                    ¿Listo para dejar atrás los procesos manuales y tener una presencia digital que realmente venda? Escríbeme y evaluemos el estado de tu negocio.
+                    ¿Tu negocio no aparece en internet o tu sitio no genera contactos? Cuéntame y lo resolvemos.
                 </p>
 
                 {/* Tarjeta de WhatsApp (La vía rápida) */}
