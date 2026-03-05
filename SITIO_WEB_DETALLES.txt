@@ -1,0 +1,553 @@
+================================================================================
+  CAPSULE STUDIO — DOCUMENTACIÓN COMPLETA DEL SITIO WEB
+  Fecha de generación: 2026-03-05
+================================================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  1. INFORMACIÓN GENERAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Nombre del Proyecto : Capsule Studio
+  Nombre del Repo     : capsule-studio
+  Versión             : 0.0.0 (en desarrollo)
+  Tipo                : Single Page Application (SPA) — Landing Page Comercial
+  Idioma              : Español (Chile)
+  Propósito           : Sitio de presentación de servicios de desarrollo web
+                        para negocios locales.
+
+  Contacto registrado en el código:
+    - WhatsApp  : +56 9 6499 1035  (https://wa.me/56964991035)
+    - Instagram : https://instagram.com   (URL genérica — pendiente actualizar)
+    - LinkedIn  : https://linkedin.com    (URL genérica — pendiente actualizar)
+    - GitHub    : https://github.com      (URL genérica — pendiente actualizar)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  2. STACK TECNOLÓGICO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  FRAMEWORK / LIBRERÍA PRINCIPAL
+  ─────────────────────────────────
+  - React 19.2             — Librería de UI basada en componentes
+  - React DOM 19.2         — Renderizado para la web
+
+  BUNDLER / TOOLCHAIN
+  ─────────────────────
+  - Vite 7.3.1             — Bundler ultrarrápido (módulo ES)
+  - @vitejs/plugin-react   — Soporte React + Babel para Vite
+
+  ESTILOS
+  ─────────
+  - Tailwind CSS 4.2       — Framework de utilidades CSS (integración via plugin Vite)
+  - @tailwindcss/vite      — Plugin oficial Tailwind v4 para Vite
+  - tailwind-animations    — Librería de animaciones preconstruidas para Tailwind
+  - Google Fonts:
+      · Orbitron (pesos 400-900) — Fuente display usada en títulos (h1-h6)
+      · Inter                    — Fuente sans-serif general (body)
+      · Fira Code                — Fuente monoespaciada (textos técnicos)
+
+  LINTING / CALIDAD DE CÓDIGO
+  ─────────────────────────────
+  - ESLint 9.39.1
+  - eslint-plugin-react-hooks
+  - eslint-plugin-react-refresh
+  - @types/react, @types/react-dom (tipos TypeScript de apoyo)
+
+  SCRIPTS DISPONIBLES
+  ─────────────────────
+  - npm run dev      → Servidor de desarrollo (Vite)
+  - npm run build    → Compilación para producción
+  - npm run preview  → Vista previa del build
+  - npm run lint     → Análisis estático con ESLint
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  3. ARQUITECTURA Y ESTRUCTURA DE ARCHIVOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  capsule-studio/
+  ├── index.html                 ← Punto de entrada HTML
+  ├── vite.config.js             ← Configuración de Vite
+  ├── package.json               ← Dependencias y scripts
+  ├── eslint.config.js           ← Configuración ESLint
+  ├── public/
+  │   └── favicon.png            ← Ícono del sitio
+  └── src/
+      ├── main.jsx               ← Bootstrap de React (ReactDOM.render)
+      ├── App.jsx                ← Componente raíz — ensambla todas las secciones
+      ├── App.css                ← Estilos del componente App
+      ├── index.css              ← Estilos globales + tokens de diseño Tailwind
+      ├── assets/
+      │   └── img/
+      │       └── complete-logo.png  ← Logo oficial de Capsule Studio
+      ├── hooks/
+      │   └── useVisible.js      ← Hook personalizado: detecta visibilidad
+      │                             con IntersectionObserver (usado en animaciones)
+      └── components/
+          ├── Navbar.jsx         ← Barra de navegación fija (desktop + hamburguesa móvil)
+          ├── Hero.jsx           ← Sección principal (encima del fold)
+          ├── Services.jsx       ← Sección de paquetes / servicios
+          ├── Nosotros.jsx       ← Sección "Sobre nosotros" con misión, valores y stats
+          ├── Process.jsx        ← Sección del proceso de trabajo (3 pasos)
+          ├── Contact.jsx        ← Sección de contacto (WhatsApp + Formulario por email)
+          ├── Footer.jsx         ← Pie de página con links, redes sociales y copyright
+          ├── ScrollReveal.jsx   ← Componente wrapper de animación al hacer scroll
+          ├── CyberpunkAnimation.jsx  ← Animación visual decorativa (Hero, columna derecha)
+          └── Portfolio.jsx      ← Sección de portafolio (COMENTADA / desactivada en App.jsx)
+
+  ORDEN DE RENDERIZADO (App.jsx)
+  ────────────────────────────────
+  1. Navbar
+  2. Hero
+  3. Services
+  4. Nosotros
+  5. (Portfolio — desactivado)
+  6. Process
+  7. Contact
+  8. Footer
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  4. DISEÑO Y SISTEMA DE TOKENS VISUALES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  PALETA DE COLORES (custom tokens en index.css @theme)
+  ───────────────────────────────────────────────────────
+  --color-akira-red     : #e3242b   (rojo neón — énfasis, alertas, CTA secundarios)
+  --color-capsule-blue  : #00d4ff   (azul cyan neón — color de marca principal)
+  --color-neo-dark      : #0d0e15   (fondo oscuro — color base de toda la UI)
+  --color-neo-light     : #f8f9fa   (blanco suave — texto principal)
+
+  También usados como inline styles:
+  - rgba(0, 212, 255, 0.xx)   — variantes de alpha del azul
+  - rgba(227, 36, 43, 0.xx)   — variantes de alpha del rojo
+  - #0a0d16                   — fondo de tarjetas (ligeramente más oscuro que neo-dark)
+
+  TIPOGRAFÍA
+  ────────────
+  - Títulos (h1–h6)  : Orbitron (display) — tracking 0.05em — Google Fonts
+  - Cuerpo           : Inter (sans-serif)
+  - Código / mono    : Fira Code (monospace) — usado en etiquetas técnicas
+  - Tailwind class   : font-mono (Fira Code), font-sans (Inter), font-display (Orbitron)
+
+  ESTILO VISUAL
+  ───────────────
+  - Tema oscuro total (dark mode nativo)
+  - Estética cyberpunk / neón / retrofuturista
+  - Efectos de resplandor (blur + rgba) en bordes y textos
+  - Glassmorphism en Navbar (backdrop-blur-md + fondo con opacidad)
+  - Animaciones CSS:
+      · neonPulse  — pulso de brillo en textos etiqueta (2s infinite)
+      · float      — levitación suave de elementos decorativos (6s infinite)
+      · blurred-fade-in — aparición con desenfoque (librería tailwind-animations)
+      · Reveal / ScrollReveal — fade-in + translate al hacer scroll (componente custom)
+
+  RESPONSIVE
+  ──────────
+  - Breakpoints Tailwind: sm / md / lg / xl
+  - Mobile-first
+  - Navbar: menú hamburguesa animado en móvil, links horizontales en tablet+
+  - Layouts: 1 columna en móvil → 2-3 columnas en desktop (CSS Grid)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  5. SEO Y METADATOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ESTADO ACTUAL DEL SEO (index.html)
+  ────────────────────────────────────
+  <title>           : "Capsule Studio | Desarrollo Web |"
+
+  <meta charset>    : UTF-8
+  <meta viewport>   : width=device-width, initial-scale=1.0
+  <link favicon>    : /public/favicon.png (SVG type, PNG real)
+  <lang>            : "en"   ⚠️ PENDIENTE CAMBIAR A "es" O "es-CL"
+
+  AUSENCIAS DETECTADAS (oportunidades de mejora SEO)
+  ────────────────────────────────────────────────────
+  - Sin <meta name="description">
+  - Sin <meta name="keywords">
+  - Sin Open Graph (og:title, og:description, og:image, og:url)
+  - Sin Twitter Cards
+  - Sin <link rel="canonical">
+  - Sin schema.org (JSON-LD para LocalBusiness)
+  - Sin sitemap.xml
+  - Sin robots.txt
+  - El lang del HTML dice "en" (debería ser "es" o "es-CL")
+
+  SUGERENCIAS DE META DESCRIPTION
+  ─────────────────────────────────
+  "Capsule Studio — Diseño web profesional para negocios locales. 
+   Lanzamos tu sitio rápido, moderno y listo para vender. Cotiza ahora."
+
+  PALABRAS CLAVE SUGERIDAS
+  ─────────────────────────
+  - diseño web para negocios
+  - desarrollo web Chile
+  - landing page alta conversión
+  - sitio web para restaurant
+  - presencia digital negocios locales
+  - páginas web profesionales
+  - desarrollador web Santiago
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  6. NAVEGACIÓN (NAVBAR)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Archivo : src/components/Navbar.jsx
+  Tipo    : Navbar fija (fixed), con fondo translúcido (glassmorphism)
+
+  LINKS DE NAVEGACIÓN
+  ────────────────────
+  Etiqueta       → Href destino (anchor)
+  ─────────────────────────────────────
+  / INICIO       → #inicio
+  / SERVICIOS    → #servicios
+  / NOSOTROS     → #nosotros
+  / PROCESO      → #proceso
+  / CONTACTO     → #contacto
+
+  COMPORTAMIENTO MÓVIL
+  ──────────────────────
+  - Botón hamburguesa (3 barras animadas → X al abrir)
+  - Menú desplegable con transición max-height + opacity
+  - Al hacer clic en un link, el menú se cierra automáticamente
+  - aria-label="Abrir menú" (accesibilidad)
+
+  LOGO
+  ─────
+  - Imagen: src/assets/img/complete-logo.png
+  - Link: href="/" (recarga la página)
+  - Hover: scale 105% + glow cyan
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  7. SECCIÓN HERO (INICIO)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Archivo    : src/components/Hero.jsx
+  ID sección : #inicio
+  Layout     : 2 columnas (texto | animación), 1 columna en móvil
+
+  TEXTOS
+  ───────
+  Eyebrow / Etiqueta técnica:
+    "// DIGITAL CONSTRUCTS"
+
+  Título principal (H1):
+    "Sincroniza tu negocio Con el Mañana"
+    — "Con el Mañana" está en rojo degradado (#e3242b → red-600)
+
+  Subtítulo / Descripción:
+    "Diseño web profesional, rápido y sin complicaciones. Transforma visitantes
+     en clientes mientras tú te enfocas en operar tu negocio."
+
+  CALL TO ACTION (CTA)
+  ─────────────────────
+  Botón: "Cotizar Ahora"  →  Enlace interno #contacto
+  Estilo: fondo rojo (#e3242b), texto blanco, mayúsculas, sombra luminosa
+
+  ELEMENTO DECORATIVO
+  ────────────────────
+  - Columna derecha (solo visible en desktop, lg+):
+    Componente <CyberpunkAnimation /> — animación SVG/canvas cyberpunk
+  - Fondo: 2 círculos de resplandor (blue + red con blur extremo)
+
+  ANIMACIONES DE ENTRADA
+  ───────────────────────
+  Usa componente <Reveal dir="" delay="">:
+  - Eyebrow     → dir="down",  delay=0ms
+  - H1          → dir="left",  delay=200ms
+  - Subtítulo   → dir="left",  delay=400ms
+  - Botón CTA   → dir="up",    delay=600ms
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  8. SECCIÓN SERVICIOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Archivo    : src/components/Services.jsx
+  ID sección : #servicios
+  Layout     : 3 tarjetas en desktop, 1 columna en móvil
+
+  ENCABEZADO DE SECCIÓN
+  ──────────────────────
+  Título H2   : "Modelos de Implementación"
+               ("Implementación" en azul cyan)
+  Subtítulo   : "// INGENIERÍA APLICADA AL CRECIMIENTO"
+
+  ─────────────────────────────────────────────────────
+  PAQUETE 1 — TERMINAL DE VENTAS
+  ─────────────────────────────────────────────────────
+  Tag         : "// ALTA CONVERSIÓN"
+  Nombre      : "Terminal de Ventas"
+  Descripción : "Una landing page lista para vender. Diseñada para que el
+                 cliente llegue y llame, escriba o compre."
+  Características:
+    ❯ Landing page de alto rendimiento
+    ❯ Diseño UX optimizado para móvil
+    ❯ Pipeline directo a WhatsApp
+    ❯ Velocidad de carga milimétrica
+  CTA         : "Solicitar Diagnóstico"  →  #contacto
+  Estilo      : Borde azul, CTA transparente con borde azul
+
+  ─────────────────────────────────────────────────────
+  PAQUETE 2 — ECOSISTEMA DE NEGOCIO  ★ DESTACADO
+  ─────────────────────────────────────────────────────
+  Tag         : "// PRESENCIA INTEGRAL"
+  Nombre      : "Ecosistema de Negocio"
+  Descripción : "Tu sitio completo: quiénes son, qué ofrecen, cómo contactarlos.
+                 Con SEO para aparecer en Google."
+  Características:
+    ❯ Desarrollo multi-sección
+    ❯ Sistemas de contacto inteligentes
+    ❯ Integración de Menú o Catálogo
+    ❯ Optimización de presencia local (SEO)
+  CTA         : "Evaluar Implementación"  →  #contacto
+  Estilo      : Borde rojo con glow, CTA rojo sólido (plan destacado / highlight)
+
+  ─────────────────────────────────────────────────────
+  PAQUETE 3 — OPTIMIZACIÓN DE FLUJO
+  ─────────────────────────────────────────────────────
+  Tag         : "// SOFTWARE A MEDIDA"
+  Nombre      : "Optimización de Flujo"
+  Descripción : "Herramientas a medida para automatizar tareas repetitivas y
+                 eliminar trabajo manual."
+  Características:
+    ❯ Análisis de cuellos de botella
+    ❯ Desarrollo de herramientas internas
+    ❯ Manejo de bases de datos
+    ❯ Mantenimiento de infraestructura
+  CTA         : "Agendar Consultoría"  →  #contacto
+  Estilo      : Borde azul, CTA transparente con borde azul
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  9. SECCIÓN NOSOTROS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Archivo    : src/components/Nosotros.jsx
+  ID sección : #nosotros
+  Layout     : 2 columnas (misión+enfoque | estadísticas) + grid de valores
+
+  ENCABEZADO DE SECCIÓN
+  ──────────────────────
+  Eyebrow     : "// QUIÉNES SOMOS"
+  Título H2   : "Construimos el futuro digital de tu negocio"
+               ("digital de tu negocio" en rojo degradado)
+  Descripción : "Hacemos sitios web para negocios que necesitan vender más y
+                 perder menos tiempo."
+
+  MISIÓN
+  ───────
+  Título H3   : "Nuestra misión"
+  Puntos (animados al hacer scroll):
+    • Los negocios locales merecen presencia digital de primer nivel.
+    • Combinamos diseño de vanguardia con tecnología moderna.
+    • Llevamos tu negocio al siguiente nivel, sin burocracia de grandes agencias.
+    • Construimos contigo, no solo para ti.
+
+  ENFOQUE
+  ────────
+  Título H3   : "Nuestro enfoque"
+  Texto       : "Antes de escribir una sola línea de código, entendemos tu
+                 negocio. Nada de plantillas genéricas: cada sitio está hecho
+                 para tu cliente específico."
+
+  BLOQUE DECORATIVO (terminal code)
+  ────────────────────────────────────
+  // filosofia.js
+  const mision = () => {
+    return "Código limpio, resultados reales";
+  };
+
+  ESTADÍSTICAS (tarjetas numeradas)
+  ──────────────────────────────────
+  +50   → Proyectos completados
+  98%   → Clientes satisfechos
+  +3    → Años de experiencia
+  24h   → Tiempo de respuesta
+
+  VALORES (grid de 4 tarjetas)
+  ──────────────────────────────
+  1. Resultados reales
+     "Cada proyecto está diseñado para generar impacto medible en tu negocio."
+     Color: azul cyan
+
+  2. Velocidad de entrega
+     "Lanzamos sitios funcionales y optimizados en tiempos que sorprenden."
+     Color: rojo akira
+
+  3. Tecnología de punta
+     "Usamos las herramientas más modernas para construir presencias digitales
+      robustas."
+     Color: azul cyan
+
+  4. Soporte continuo
+     "No desaparecemos al entregar: somos tu aliado digital a largo plazo."
+     Color: rojo akira
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  10. SECCIÓN PROCESO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Archivo    : src/components/Process.jsx
+  ID sección : #proceso
+  Layout     : 3 tarjetas en grid (conectadas con línea horizontal en desktop)
+
+  ENCABEZADO DE SECCIÓN
+  ──────────────────────
+  Título H2   : "Secuencia de Iniciación"
+               ("Iniciación" en azul cyan)
+  Subtítulo   : "// CÓMO TRANSFORMAMOS TU NEGOCIO"
+
+  PASOS DEL PROCESO
+  ──────────────────
+  PASO 01 — Extracción de Datos
+    "Analizamos el flujo actual de tu local. Entendemos qué ofreces, quién te
+     compra y dónde estás perdiendo clientes por no estar digitalizado."
+
+  PASO 02 — Construcción Digital
+    "Diseñamos y programamos tu plataforma usando tecnología de punta. Nada de
+     plantillas lentas; código limpio, rápido y optimizado."
+
+  PASO 03 — Despliegue y Operación
+    "Lanzamos tu sitio a internet y lo conectamos a tus canales de venta (como
+     WhatsApp). Te entregamos la llave de un sistema listo para funcionar."
+
+  ELEMENT0 VISUAL
+  ────────────────
+  - Línea horizontal conectora entre los 3 pasos (visible solo en desktop)
+  - Número grande translúcido de fondo (01, 02, 03) con degradado
+  - Punto rojo pulsante junto al título de cada paso (neon-pulse)
+  - Hover: borde cambia de gris a azul cyan
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  11. SECCIÓN CONTACTO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Archivo    : src/components/Contact.jsx
+  ID sección : #contacto
+  Layout     : 2 columnas (izquierda: pitch + WhatsApp | derecha: formulario)
+
+  COLUMNA IZQUIERDA
+  ──────────────────
+  Título H2   : "Inicia la Actualización"
+               ("Actualización" en rojo degradado)
+  Descripción : "¿Tu negocio no aparece en internet o tu sitio no genera
+                 contactos? Cuéntame y lo resolvemos."
+
+  Tarjeta WhatsApp:
+    Título   : "Vía Rápida"  (+ ícono WhatsApp en azul)
+    Subtexto : "Respuesta directa. Sin formularios, sin correos automáticos."
+    CTA      : "❯ Abrir Chat"
+    URL      : https://wa.me/56964991035
+
+  COLUMNA DERECHA — FORMULARIO
+  ─────────────────────────────
+  Label eyebrow  : "// Vía correo electrónico"
+  Action URL     : "#"  ⚠️ PENDIENTE — Configurar Formspree u otro servicio
+
+  Campos:
+    1. Nombre o Empresa  (type="text",  placeholder: "Ej. Restaurante El Sabor")
+    2. Correo Electrónico (type="email", placeholder: "correo@empresa.com")
+    3. ¿Qué necesitas?   (textarea, rows=4,
+                          placeholder: "Cuéntame un poco sobre tu local y qué
+                                        te gustaría mejorar...")
+  Botón Submit: "Enviar" — rojo sólido con glow
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  12. FOOTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Archivo : src/components/Footer.jsx
+
+  BANDA SUPERIOR
+  ───────────────
+  Texto    : "Síguenos en nuestras redes"
+  Íconos con links:
+    - Instagram  → https://instagram.com  (pendiente URL real)
+    - LinkedIn   → https://linkedin.com   (pendiente URL real)
+    - GitHub     → https://github.com     (pendiente URL real)
+
+  BANDA INFERIOR
+  ──────────────
+  Logo     : complete-logo.png (enlace a /)
+  Links    : Inicio / Servicios / Nosotros / Proceso / Contacto
+  Copyright: "© [AÑO] Capsule Studio"  (año dinámico con new Date().getFullYear())
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  13. COMPONENTES TÉCNICOS / UTILITARIOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  SCROLLREVEAL (src/components/ScrollReveal.jsx)
+  ───────────────────────────────────────────────
+  Componente wrapper que aplica animación de entrada al hacer scroll.
+  Exporta: <Reveal dir="up|down|left|right" delay={ms} className="">
+  Internamente usa el hook useVisible para detectar visibilidad.
+  Transición: opacity 0→1 + translate según dirección, duración 600ms.
+
+  USEVISIBLE (src/hooks/useVisible.js)
+  ──────────────────────────────────────
+  Hook personalizado de React.
+  Usa IntersectionObserver para detectar si un elemento está en el viewport.
+  Parámetro: threshold (qué porcentaje del elemento debe ser visible)
+  Retorna: [ref, visible] — ref para adjuntar al elemento, visible boolean.
+
+  CYBERPUNKANIMATION (src/components/CyberpunkAnimation.jsx)
+  ─────────────────────────────────────────────────────────
+  Animación visual decorativa de gran tamaño (~21KB).
+  Visible solo en desktop (columna derecha del Hero).
+  Entrada con class: animate-blurred-fade-in (tailwind-animations).
+
+  PORTFOLIO (src/components/Portfolio.jsx)
+  ──────────────────────────────────────────
+  Sección desactivada en App.jsx (comentada con {/* <Portfolio /> */}).
+  Preparada para mostrar casos de trabajo / proyectos.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  14. PENDIENTES / MEJORAS IDENTIFICADAS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  SEO
+  ────
+  [ ] Cambiar lang="en" a lang="es" o lang="es-CL" en index.html
+  [ ] Añadir <meta name="description"> con texto optimizado
+  [ ] Añadir Open Graph tags (og:title, og:description, og:image, og:url, og:type)
+  [ ] Añadir Twitter Card tags
+  [ ] Añadir <link rel="canonical" href="URL">
+  [ ] Implementar schema.org LocalBusiness JSON-LD
+  [ ] Crear sitemap.xml
+  [ ] Crear robots.txt
+  [ ] Completar el título: "Capsule Studio | Desarrollo Web |" — le falta el 3er término
+
+  FUNCIONALIDAD
+  ──────────────
+  [ ] Configurar acción del formulario de contacto (Formspree, EmailJS u otro)
+  [ ] Actualizar URLs de redes sociales en Footer (Instagram, LinkedIn, GitHub)
+  [ ] Activar sección Portfolio cuando esté lista
+  [ ] Considerar activar Google Analytics o similar
+
+  ACCESIBILIDAD
+  ──────────────
+  [ ] Agregar alt text descriptivo a more imágenes (logo tiene alt="CapsuleLogo"
+      — podría ser más descriptivo)
+  [ ] Verificar contraste de colores (texto gris sobre fondo oscuro podría ser bajo)
+  [ ] Asegurar focus styles visibles para navegación por teclado
+
+  PERFORMANCE
+  ─────────────
+  [ ] Evaluar preload de fuentes críticas (Orbitron)
+  [ ] Optimizar complete-logo.png (WebP + tamaño adecuado)
+  [ ] Revisar tamaño de CyberpunkAnimation.jsx (~21KB)
+
+================================================================================
+  FIN DEL DOCUMENTO — Capsule Studio
+================================================================================
