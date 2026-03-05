@@ -1,7 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Reveal } from './ScrollReveal';
 
 const Contact = () => {
+    // Estado para manejar el mensaje de carga o éxito
+    const [status, setStatus] = useState({ submitting: false, info: { error: false, msg: null } });
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus({ submitting: true, info: { error: false, msg: null } });
+
+        const form = e.target;
+        const data = new FormData(form);
+
+        try {
+            const response = await fetch("https://formspree.io/f/mjgabepd", {
+                method: 'POST',
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                setStatus({
+                    submitting: false,
+                    info: { error: false, msg: "¡Mensaje enviado con éxito! Te responderemos pronto." }
+                });
+                form.reset(); // Limpia el formulario
+            } else {
+                setStatus({
+                    submitting: false,
+                    info: { error: true, msg: "Hubo un error de conexión. Inténtalo de nuevo." }
+                });
+            }
+        } catch {
+            setStatus({
+                submitting: false,
+                info: { error: true, msg: "Error al enviar el mensaje." }
+            });
+        }
+    };
+
     return (
         <section id="contacto" className="py-24 px-6 bg-neo-dark relative border-t border-neo-light/10">
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
@@ -42,11 +81,13 @@ const Contact = () => {
                     // Vía correo electrónico
                 </p>
                 
-                <form className="space-y-4" action="https://formspree.io/f/mjgabepd" method="POST">
+                {/* Cambiamos el action nativo por el evento onSubmit de React */}
+                <form className="space-y-4" onSubmit={handleSubmit}>
                     <div>
                     <label className="block text-gray-400 text-sm mb-1 font-mono">Nombre o Empresa</label>
                     <input 
                         type="text" 
+                        name="nombre" /* <-- Atributo clave agregado */
                         required
                         className="w-full bg-neo-dark border border-neo-light/10 rounded-sm px-4 py-3 text-neo-light focus:outline-none focus:border-capsule-blue focus:ring-1 focus:ring-capsule-blue transition-colors"
                         placeholder="Ej. Restaurante El Sabor"
@@ -57,6 +98,7 @@ const Contact = () => {
                     <label className="block text-gray-400 text-sm mb-1 font-mono">Correo Electrónico</label>
                     <input 
                         type="email" 
+                        name="email" /* <-- Atributo clave agregado */
                         required
                         className="w-full bg-neo-dark border border-neo-light/10 rounded-sm px-4 py-3 text-neo-light focus:outline-none focus:border-capsule-blue focus:ring-1 focus:ring-capsule-blue transition-colors"
                         placeholder="correo@empresa.com"
@@ -66,6 +108,7 @@ const Contact = () => {
                     <div>
                     <label className="block text-gray-400 text-sm mb-1 font-mono">¿Qué necesitas?</label>
                     <textarea 
+                        name="mensaje" /* <-- Atributo clave agregado */
                         rows="4"
                         required
                         className="w-full bg-neo-dark border border-neo-light/10 rounded-sm px-4 py-3 text-neo-light focus:outline-none focus:border-capsule-blue focus:ring-1 focus:ring-capsule-blue transition-colors resize-none"
@@ -75,15 +118,23 @@ const Contact = () => {
                 
                     <button 
                     type="submit"
-                    className="w-full mt-2 px-6 py-4 bg-akira-red text-neo-light font-bold uppercase tracking-wider rounded-sm hover:bg-red-600 transition-all shadow-[0_0_20px_rgba(227,36,43,0.3)] hover:shadow-[0_0_30px_rgba(227,36,43,0.5)]"
+                    disabled={status.submitting}
+                    className={`w-full mt-2 px-6 py-4 font-bold uppercase tracking-wider rounded-sm transition-all shadow-[0_0_20px_rgba(227,36,43,0.3)] hover:shadow-[0_0_30px_rgba(227,36,43,0.5)] ${status.submitting ? 'bg-red-800 text-gray-400 cursor-not-allowed' : 'bg-akira-red text-neo-light hover:bg-red-600'}`}
                     >
-                    Enviar
+                    {status.submitting ? 'Enviando...' : 'Enviar'}
                     </button>
                 </form>
+
+                {/* Mensaje de respuesta visual (Aparece sin recargar la página) */}
+                {status.info.msg && (
+                    <div className={`mt-4 p-3 rounded-sm text-sm font-mono text-center border ${status.info.error ? 'border-akira-red text-akira-red bg-akira-red/10' : 'border-capsule-blue text-capsule-blue bg-capsule-blue/10'}`}>
+                    {status.info.msg}
+                    </div>
+                )}
                 </Reveal>
                 
             </div>
-        </  section>
+        </section>
     );
 };
 
