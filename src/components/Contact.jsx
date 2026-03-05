@@ -42,10 +42,7 @@ const Contact = () => {
                     // Vía correo electrónico
                 </p>
                 
-                {/* Nota: Más adelante puedes poner la URL de Formspree en el 'action' 
-                    Ejemplo: action="https://formspree.io/f/tu-codigo" 
-                */}
-                <form className="space-y-4" action="#" method="POST">
+                <form className="space-y-4" action="https://formspree.io/f/mjgabepd" method="POST">
                     <div>
                     <label className="block text-gray-400 text-sm mb-1 font-mono">Nombre o Empresa</label>
                     <input 
